@@ -34,9 +34,9 @@ export default function Projects() {
 
             <ProjectItem
               path="https://github.com/EtozheVladOS"
-              text="Мой gitHub"
-              label="Мой gitHub"
-              src="images/git.png"
+              text="Мой gitHub1"
+              label="Мой gitHub1"
+              src="images/git.PNG"
             />
 
             <ProjectItem
