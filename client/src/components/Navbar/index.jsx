@@ -3,7 +3,7 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "../Button";
 
-function Navbar() {
+export default function Navbar() {
   const [clicked, setClicked] = useState(false);
   const [button, setButton] = useState(true);
 
@@ -28,36 +28,48 @@ function Navbar() {
   return (
     <nav className="navbar">
       <div className="navbar-container">
-        <Link to="/" className="navbar-logo">
-          <i class="fas fa-atom"></i>
+        <Link to="/" className="navbar-logo" onClick={closeMenu}>
+          <i className="fas fa-atom"></i>
           Vlados
-          <i class="fas fa-atom"></i>
+          <i className="fas fa-atom"></i>
         </Link>
 
         <ul className={clicked ? 'nav-menu active' : 'nav-menu'}>
           <li className="nav-item">
             <Link to="/" className="nav-link" onClick={closeMenu}>
-              Home
+              Главная
             </Link>
           </li>
 
+          {!button &&
+            (
+              <li className="nav-item">
+                <Link to="/projects" className="nav-link" onClick={closeMenu} >
+                  Проекты
+                </Link>
+              </li>
+            )
+          }
+
           <li className="nav-item">
-            <Link to="/resume" className="nav-link" onClick={closeMenu}>
-              Resume
+            <Link to="/aboutMe" className="nav-link" onClick={closeMenu}>
+              О себе
             </Link>
           </li>
 
           <li className="nav-item">
             <Link to="/contacts" className="nav-link" onClick={closeMenu}>
-              Contacts
+              Контакты
             </Link>
           </li>
         </ul>
 
         {button ?
-          <Button buttonStyle="btn--outline">
-            SIGN UP
-          </Button>
+          <Link to="/projects" onClick={closeMenu} >
+            <Button buttonStyle="btn--outline">
+              ПРОЕКТЫ
+            </Button>
+          </Link>
           : <div className="menu-icon" onClick={handleClick}>
             <i className={clicked ? 'fas fa-times' : 'fas fa-bars'} />
           </div>
@@ -66,5 +78,3 @@ function Navbar() {
     </nav>
   )
 }
-
-export default Navbar;
