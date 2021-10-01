@@ -7,7 +7,7 @@ export default function AboutMe() {
       <h1>Обо мне</h1>
       <div className="aboutMe__container">
         <div className="photo">
-          <img src="../../images/vlados.jpg" alt="MyPhoto" />
+          <img src="/images/vlados.jpg" alt="MyPhoto" />
         </div>
         <div className="text-container">
           <p className="text-item">
